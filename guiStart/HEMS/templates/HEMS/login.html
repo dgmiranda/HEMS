@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% include 'base/js.html' %}
+
+{% block content %}
+
+<h1>Home Enegry Monitoring System</h1>
+<p>You can login here</p>
+<h1>Login</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Login</button>
+</form>
+
+
+{% endblock content %}
+
+
+
+{% block 2 %}
+{% endblock 2 %}

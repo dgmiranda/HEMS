@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% include 'base/css.html' %}
+{% include 'base/bootstrap_defaults.html' %}
+{% include 'base/js.html' %}
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>HEMS</title>
+
+  </head>
+  <body>
+    <br>
+    <div class="container">
+    {% block navbar %}
+      <!-- Static navbar -->
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/HEMS/login">HEMS</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="/ENERGY">ENERGY USE</a></li>
+              <li><a href="/STATS">STATS</a></li>
+              <li><a href="#">DEVICES</a></li>
+              <li><a href="/SETTINGS">SETTINGS</a></li>
+              <li><a href="#">NOTIFICATIONS</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                      <li><a href="/HEMS/login">Login <span class="sr-only">(current)</span></a></li>
+                      <li><a href="/HEMS/logout">Logout</a></li>
+                      <li><a href="/HEMS/register">Register</a></li>
+                    </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+    </div>
+    {% endblock navbar %}
+    <div class='container'>
+    {% block content %}
+    {% endblock content %}
+    </div>
+
+
+    <script>
+    $(document).ready(function(){
+      {% block jquery %}{% endblock %}
+    })
+    </script>
+
+    <div class='container'>
+    {% block 2  %}
+    {% endblock 2 %}
+    </div>
+  </body>
+</html>

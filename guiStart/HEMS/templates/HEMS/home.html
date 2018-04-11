@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+<h1>HOME page </h1>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+    <head>
+        {% block head %}
+        <title>HEMS HOME</title>
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        <h1>HEMS home page</h1>
+                <div class="container">
+            <h1>Home Enegry Monitoring System</h1>
+
+            <button class="btn btn-primary"type="button" name="button">Press Me</button>
+        </div>
+
+        <div class="container">
+            <ul>
+                {% for numbers in readings %}
+                <l1>
+                {{ numbers }}
+
+                </li>
+                {% endfor %}
+                {% for nums in date_time %}
+                <l1>
+                {{ nums }}
+
+                </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+
+        <canvas id="myChart" width="400" height="400"> </canvas>
+
+        <script>
+        {
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+                data: {
+                labels: date_time,
+                datasets: [{
+                    label: "My First dataset",
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: readings,
+                }]
+            },
+
+            // Configuration options go here
+            options: {}
+                });
+        }
+        </script>
+        {% endblock %}
+    </body>
+</html>
